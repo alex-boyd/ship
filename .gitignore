@@ -1,3 +1,4 @@
 *.meta
+*.swp
 Deprecated/*
 .DS_Store

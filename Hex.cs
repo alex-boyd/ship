@@ -10,6 +10,8 @@ public class Hex : MonoBehaviour
     public bool water = false;
     public bool occupied = false;
 
+    public bool neighborsInitialized = false;
+
     public Fort fort = null;
     private GameObject coordCanvas;
     private Text coordText;
@@ -85,12 +87,14 @@ public class Hex : MonoBehaviour
 
     public void Unload()
     {
+        //move out of camera render area
+
         if(fort != null)
         {
-            Destroy(fort.gameObject);
+            //Destroy(fort.gameObject);
         }
 
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
     }
 
     public string CoordsToString()

@@ -13,6 +13,8 @@ public class ChunkManager : MonoBehaviour
 
     public List<Chunk> loadedChunks = new List<Chunk>();
 
+    //area to move them to?
+
 
     private void Awake()
     {
@@ -71,15 +73,18 @@ public class ChunkManager : MonoBehaviour
         Chunk[] loaded = new Chunk[loadedChunks.Count];
         loadedChunks.CopyTo(loaded);
 
+        /*
         foreach(Chunk c in loaded)
         {
             if(!current.neighbors.Contains(c) && c != current)
             {
-                UnloadChunk(c);                
+                //UnloadChunk(c);                
                 continue;
             }
 
         }
+        */
+
         
         //HexManager.instance.RepairHexReferences();
 
@@ -121,12 +126,14 @@ public class ChunkManager : MonoBehaviour
 
     }
 
+    /*
     public void UnloadChunk(Chunk c)
     {
         c.Unload();
         loadedChunks.Remove(c);
 
     }
+*/
 
     public Chunk GetChunkVisited(int[] origin)
     {

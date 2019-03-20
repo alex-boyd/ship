@@ -31,6 +31,8 @@ public class PathfindingManager : MonoBehaviour
         distance.Add(end, 0);
 
 
+
+
         //build distance graph
 
         int shortestDistance = int.MaxValue;

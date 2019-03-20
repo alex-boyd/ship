@@ -24,13 +24,11 @@ public class Chunk //: MonoBehaviour
     {
         HexManager.instance.InitializeHexes(this);
     }
-
+/*
     public void Unload()
     {
-        foreach(Hex h in hexes)
-        {
-            h.Unload();
-        }
-
+        
+        HexManager.instance.UnloadHexes(hexes);
     }
+    */
 }

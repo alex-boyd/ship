@@ -18,19 +18,22 @@ public class HexManager : MonoBehaviour
 
     //contains hexes
     private GameObject hexParent;
-
     public List<Hex> hexes = new List<Hex>();
 
+    //reference to absolute origin
     public Hex origin = null;
 
     //initialization """threading"""
     public bool initializingHexes = false;
-    public int hexesPerFrame = 100;
-    public int radius = 6; 
+    public int hexesPerFrame = 300;
 
     public List<Chunk> chunksToInitialize = new List<Chunk>();
+    public List<Hex> hexesToUnload = new List<Hex>();
+
+    //search for generation
     private Queue<int[]> frontier = new Queue<int[]>();
     private List<int[]> visited = new List<int[]>();
+    public int radius = 6; 
 
     //singleton instance
     public static HexManager instance = null;
@@ -140,7 +143,8 @@ public class HexManager : MonoBehaviour
                 ChunkManager.instance.BuildGraph();
                 RepairHexReferences();
 
-                hexesPerFrame = 5;
+                hexesPerFrame = 50;
+
                 GameStateManager.instance.LateInitialize();
 
 
@@ -182,12 +186,10 @@ public class HexManager : MonoBehaviour
 
         }
 
-
     }
 
     public void RepairHexReferences()
     {
-
         Hex[] hexesCopy = new Hex[hexes.Count];
         hexes.CopyTo(hexesCopy);
 
